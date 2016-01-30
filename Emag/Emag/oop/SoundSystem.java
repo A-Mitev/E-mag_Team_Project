@@ -1,0 +1,8 @@
+package oop;
+
+public class SoundSystem extends AudioVisual {
+	private boolean hasRadio;
+	private boolean isMP3Capable;
+	private boolean hasTapeDeck;
+	
+}
