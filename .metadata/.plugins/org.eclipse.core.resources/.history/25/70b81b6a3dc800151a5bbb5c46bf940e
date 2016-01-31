@@ -9,13 +9,16 @@ public abstract class Computer extends Product {
 	private boolean videoCard;
 	private int ramMBs;
 	private int hddCapacityGBs;
+	private String usbType;
 
-	public Computer(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs) {
+	public Computer(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs,
+			String usbType) {
 		setOperatingSystem(operatingSystem);
 		setProcessor(processor);
-		this.videoCard = videoCard;
+		hasVideoCard();
 		setRamMBs(ramMBs);
 		setHddCapacityGBs(hddCapacityGBs);
+		setUsbType(usbType);
 	}
 
 	public String getOperatingSystem() {
@@ -42,6 +45,12 @@ public abstract class Computer extends Product {
 		return videoCard;
 	}
 
+	public void setGraphics(String graphics) {
+		if (graphics != null && graphics.equals("")) {
+			this.graphics = graphics;
+		}
+	}
+
 	public int getRamMBs() {
 		return ramMBs;
 	}
@@ -58,6 +67,16 @@ public abstract class Computer extends Product {
 	public void setHddCapacityGBs(int hddCapacityGBs) {
 		if (hddCapacityGBs > MIN_HDD_CAPACITY && hddCapacityGBs < MAX_HDD_CAPACITY) {
 			this.hddCapacityGBs = hddCapacityGBs;
+		}
+	}
+
+	public String getUsbType() {
+		return usbType;
+	}
+
+	public void setUsbType(String usbType) {
+		if (usbType != null && !usbType.equals("")) {
+			this.usbType = usbType;
 		}
 	}
 

@@ -6,16 +6,19 @@ public abstract class Computer extends Product {
 	private static final int MAX_AVAILABLE_RAM_MEMORY = 32000;
 	private String operatingSystem;
 	private String processor;
-	private boolean videoCard;
+	private String graphics;
 	private int ramMBs;
 	private int hddCapacityGBs;
+	private String usbType;
 
-	public Computer(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs) {
+	public Computer(String operatingSystem, String processor, String graphics, int ramMBs, int hddCapacityGBs,
+			String usbType) {
 		setOperatingSystem(operatingSystem);
 		setProcessor(processor);
-		this.videoCard = videoCard;
+		setGraphics(graphics);
 		setRamMBs(ramMBs);
 		setHddCapacityGBs(hddCapacityGBs);
+		setUsbType(usbType);
 	}
 
 	public String getOperatingSystem() {
@@ -38,8 +41,14 @@ public abstract class Computer extends Product {
 		}
 	}
 
-	public boolean hasVideoCard() {
-		return videoCard;
+	public String getGraphics() {
+		return graphics;
+	}
+
+	public void setGraphics(String graphics) {
+		if (graphics != null && graphics.equals("")) {
+			this.graphics = graphics;
+		}
 	}
 
 	public int getRamMBs() {
@@ -58,6 +67,16 @@ public abstract class Computer extends Product {
 	public void setHddCapacityGBs(int hddCapacityGBs) {
 		if (hddCapacityGBs > MIN_HDD_CAPACITY && hddCapacityGBs < MAX_HDD_CAPACITY) {
 			this.hddCapacityGBs = hddCapacityGBs;
+		}
+	}
+
+	public String getUsbType() {
+		return usbType;
+	}
+
+	public void setUsbType(String usbType) {
+		if (usbType != null && !usbType.equals("")) {
+			this.usbType = usbType;
 		}
 	}
 
