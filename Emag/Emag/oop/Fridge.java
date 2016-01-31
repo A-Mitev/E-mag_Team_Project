@@ -18,5 +18,10 @@ public class Fridge extends HomeTech {
 		return hasFreezer;
 	}
 	
+	public void showInfo() {
+		System.out.println(this.getBrand() + " " + this.getManufaturer() + " " + this.getPrice());
+		System.out.println(this.getNumberOfDoors() + " " + this.getLitres() + " " + this.getNumberOfShelves() + " "
+				+ this.isHasFreezer());
+	}
 	
 }

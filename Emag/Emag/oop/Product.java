@@ -7,7 +7,7 @@ public abstract class Product implements IProduct{
 	private String manufacturer;
 	private String brand;
 	private int productID;//dobavih product ID
-	
+	private String model;//dobavih model
 	
 	protected double getPrice() {
 		return price;
@@ -18,7 +18,12 @@ public abstract class Product implements IProduct{
 		}
 	}
 	
+	protected String getBrand(){
+		return brand;
+	}
 	
-	
+	protected String getManufaturer(){
+		return manufacturer;
+	}
 
 }

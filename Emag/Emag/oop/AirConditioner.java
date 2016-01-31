@@ -33,5 +33,12 @@ public class AirConditioner extends HomeTech {
 
 	public boolean isSplit() {
 		return isSplit;
-	}	
+	}
+
+	@Override
+	public void showInfo() {
+		System.out.println(this.getBrand() + " " + this.getManufaturer() + " " + this.getPrice());
+		System.out.println(this.getbTUs() + " " + this.getDbs() + " " + this.isSplit());
+	}
+
 }
