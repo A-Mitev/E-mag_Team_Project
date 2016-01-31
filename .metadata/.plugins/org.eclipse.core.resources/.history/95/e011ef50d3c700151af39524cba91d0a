@@ -1,8 +1,6 @@
 package oop;
 
 public abstract class Computer extends Product{
-	private static final int MAX_HDD_CAPACITY = 2000;
-	private static final int MIN_HDD_CAPACITY = 64;
 	private static final int MAX_AVAILABLE_RAM_MEMORY = 32000;
 	private String operatingSystem;
 	private String processor;
@@ -47,17 +45,13 @@ public abstract class Computer extends Product{
 		return hddCapacityGBs;
 	}
 	public void setHddCapacityGBs(int hddCapacityGBs) {
-		if(hddCapacityGBs > MIN_HDD_CAPACITY && hddCapacityGBs < MAX_HDD_CAPACITY){
 		this.hddCapacityGBs = hddCapacityGBs;
-		}
 	}
 	public String getUsbType() {
 		return usbType;
 	}
 	public void setUsbType(String usbType) {
-		if(usbType != null && !usbType.equals("")){
 		this.usbType = usbType;
-		}
 	}
 	
 	
