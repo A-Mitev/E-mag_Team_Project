@@ -3,6 +3,19 @@ package oop;
 public abstract class Computer extends Product{
 	private static final int MAX_HDD_CAPACITY = 2000;
 	private static final int MIN_HDD_CAPACITY = 64;
+	
+	
+	public Computer(String operatingSystem, String processor, String graphics, int ramMBs, int hddCapacityGBs,
+			String usbType) {
+		this.operatingSystem = operatingSystem;
+		this.processor = processor;
+		this.graphics = graphics;
+		this.ramMBs = ramMBs;
+		this.hddCapacityGBs = hddCapacityGBs;
+		this.usbType = usbType;
+	}
+	
+	
 	private static final int MAX_AVAILABLE_RAM_MEMORY = 32000;
 	private String operatingSystem;
 	private String processor;
@@ -10,16 +23,6 @@ public abstract class Computer extends Product{
 	private int ramMBs;
 	private int hddCapacityGBs;
 	private String usbType;
-	
-	public Computer(String operatingSystem, String processor, String graphics, int ramMBs, int hddCapacityGBs,
-			String usbType) {
-		setOperatingSystem(operatingSystem);
-		this.processor = processor;
-		this.graphics = graphics;
-		this.ramMBs = ramMBs;
-		this.hddCapacityGBs = hddCapacityGBs;
-		this.usbType = usbType;
-	}
 	
 	
 	public String getOperatingSystem() {

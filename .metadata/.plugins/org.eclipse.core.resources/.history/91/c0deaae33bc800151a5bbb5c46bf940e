@@ -11,16 +11,6 @@ public abstract class Computer extends Product{
 	private int hddCapacityGBs;
 	private String usbType;
 	
-	public Computer(String operatingSystem, String processor, String graphics, int ramMBs, int hddCapacityGBs,
-			String usbType) {
-		setOperatingSystem(operatingSystem);
-		this.processor = processor;
-		this.graphics = graphics;
-		this.ramMBs = ramMBs;
-		this.hddCapacityGBs = hddCapacityGBs;
-		this.usbType = usbType;
-	}
-	
 	
 	public String getOperatingSystem() {
 		return operatingSystem;
