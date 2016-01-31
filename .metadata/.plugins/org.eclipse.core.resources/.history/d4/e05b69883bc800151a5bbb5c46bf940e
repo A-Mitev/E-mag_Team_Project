@@ -1,7 +1,6 @@
 package oop;
 
 public class AirConditioner extends HomeTech {
-	private static final int MAX_DBS_VALUE = 200;
 	private static final int MAX_BTU_VALUE = 99999;
 	private int bTUs;
 	private int dbs;
@@ -28,7 +27,7 @@ public class AirConditioner extends HomeTech {
 	}
 
 	public void setDbs(int dbs) {
-		if (dbs > 0 && dbs < MAX_DBS_VALUE) {
+		if (dbs > 0 && dbs < 200) {
 			this.dbs = dbs;
 		}
 	}

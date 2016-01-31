@@ -8,3 +8,5 @@
 1454257936289	Rename field 'wiFiCapable'
 1454257988315	Rename field 'hasRemoteControl'
 1454258728106	Rename field 'VCablesBundled'
+1454259341441	Extract constant 'MAX_BTU_VALUE'
+1454259372220	Extract constant 'MAX_DBS_VALUE'

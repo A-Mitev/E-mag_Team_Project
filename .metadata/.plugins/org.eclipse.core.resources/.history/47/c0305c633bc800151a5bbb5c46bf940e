@@ -1,16 +1,14 @@
 package oop;
 
 public class AirConditioner extends HomeTech {
-	private static final int MAX_DBS_VALUE = 200;
-	private static final int MAX_BTU_VALUE = 99999;
 	private int bTUs;
 	private int dbs;
 	private boolean split;
 
-	public AirConditioner(int bTUs, int dbs, boolean split) {
+	public AirConditioner(int bTUs, int dbs, boolean isSplit) {
 		setbTUs(bTUs);
 		setDbs(dbs);
-		this.split = split;
+		this.split = isSplit;
 	}
 
 	public int getbTUs() {
@@ -18,7 +16,7 @@ public class AirConditioner extends HomeTech {
 	}
 
 	public void setbTUs(int bTUs) {
-		if (bTUs > 0 && bTUs < MAX_BTU_VALUE) {
+		if (bTUs > 0 && bTUs < 99999) {
 			this.bTUs = bTUs;
 		}
 	}
@@ -28,7 +26,7 @@ public class AirConditioner extends HomeTech {
 	}
 
 	public void setDbs(int dbs) {
-		if (dbs > 0 && dbs < MAX_DBS_VALUE) {
+		if (dbs > 0 && dbs < 200) {
 			this.dbs = dbs;
 		}
 	}
