@@ -2,6 +2,7 @@ package oop;
 
 public class Laptop extends Computer {
 	
+	
 	private static final int MAX_WEIGHT = 10;
 	private static final int MAX_INCHES_FOR_DISPLAY = 20;
 	private boolean touchScreen;

@@ -1,0 +1,35 @@
+package oop;
+
+public class Laptop extends Computer {
+	
+	private static final int MAX_WEIGHT = 10;
+	private static final int MAX_INCHES_FOR_DISPLAY = 20;
+	private boolean touchScreen;
+	private double displaySize;
+	private double weight;
+	private boolean hasWebcam;
+	
+	
+	public boolean hasTouchScreen() {
+		return touchScreen;
+	}
+	public double getDiplaySize() {
+		return displaySize;
+	}
+	public void setDiplaySize(double diplaySize) {
+		if(displaySize > 0 && displaySize < MAX_INCHES_FOR_DISPLAY){
+		this.displaySize = diplaySize;
+		}
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		if(weight > 0 && weight < MAX_WEIGHT){
+		this.weight = weight;
+		}
+	}
+	public boolean isHasWebcam() {
+		return hasWebcam;
+	}
+}

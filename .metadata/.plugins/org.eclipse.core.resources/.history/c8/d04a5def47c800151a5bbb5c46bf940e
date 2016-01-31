@@ -9,6 +9,7 @@ public class Laptop extends Computer {
 	private double weight;
 	private boolean webcam;
 	
+	
 	public Laptop(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs,
 			boolean touchScreen, double displaySize, double weight, boolean webcam) {
 		super(operatingSystem, processor, videoCard, ramMBs, hddCapacityGBs);
@@ -17,7 +18,6 @@ public class Laptop extends Computer {
 		setWeight(weight);
 		this.webcam = webcam;
 	}
-	
 	public boolean hasTouchScreen() {
 		return touchScreen;
 	}
@@ -39,11 +39,5 @@ public class Laptop extends Computer {
 	}
 	public boolean hasWebcam() {
 		return webcam;
-	}
-
-	@Override
-	public void showInfo() {
-		// TODO Auto-generated method stub
-		
 	}
 }

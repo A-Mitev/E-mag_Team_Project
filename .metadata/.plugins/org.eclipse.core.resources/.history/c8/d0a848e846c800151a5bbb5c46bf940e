@@ -8,7 +8,7 @@ public class HomeTheaterSystem extends AudioVisual {
 	private boolean tHXCertified;
 	private boolean bluRayCapable;
 	// Outputs collection
-
+	
 	public HomeTheaterSystem(int audioOutputPower, boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled,
 			int numberOfSpeakers, int numberOfDiscs, boolean tHXCertified, boolean bluRayCapable) {
 		super(audioOutputPower, wifiCapable, remoteControl, aVCablesBundled);
@@ -49,6 +49,6 @@ public class HomeTheaterSystem extends AudioVisual {
 	@Override
 	public void showInfo() {
 		// TODO Auto-generated method stub
-
+		
 	}
 }
