@@ -12,9 +12,9 @@ public abstract class AudioVisual extends Product {
 
 	public AudioVisual(int audioOutputPower, boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled) {
 		setAudioOutputPower(audioOutputPower);
-		this.wifiCapable = wifiCapable;
-		this.remoteControl = remoteControl;
-		this.aVCablesBundled = remoteControl;
+		hasWifiCapable();
+		hasRemoteControl();
+		hasAVCablesBundled();
 	}
 
 	public int getAudioOutputPower() {
