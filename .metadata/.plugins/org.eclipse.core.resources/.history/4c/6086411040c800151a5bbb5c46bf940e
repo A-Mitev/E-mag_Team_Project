@@ -1,7 +1,8 @@
 package oop;
 
-public class Fridge extends HomeTech {
+import java.awt.font.NumericShaper;
 
+public class Fridge extends HomeTech {
 	private static final int MAX_NUMBERS_OF_SHELVES = 10;
 	private static final int MAX_NUMBER_OF_DOORS = 5;
 	private static final int MAX_FRIDGE_CAPACITY = 500;
@@ -9,23 +10,16 @@ public class Fridge extends HomeTech {
 	private int numberOfDoors;
 	private int numberOfShelves;
 	private boolean freezer;
-
-	public Fridge(int powerConsuptionInWatts, boolean isBuiltIn, int liters, int numberOfDoors, int numberOfShelves,
-			boolean freezer) {
-		super(powerConsuptionInWatts, isBuiltIn);
-		setLitres(liters);
-		setNumberOfDoors(numberOfDoors);
-		setNumberOfShelves(numberOfShelves);
-		this.freezer = freezer;
-	}
+	
+	
 
 	public int getLitres() {
 		return litres;
 	}
 
 	public void setLitres(int litres) {
-		if (litres > 0 && litres < MAX_FRIDGE_CAPACITY)
-			this.litres = litres;
+		if(litres > 0 && litres < MAX_FRIDGE_CAPACITY)
+		this.litres = litres;
 	}
 
 	public int getNumberOfDoors() {
@@ -33,8 +27,8 @@ public class Fridge extends HomeTech {
 	}
 
 	public void setNumberOfDoors(int numberOfDoors) {
-		if (numberOfDoors > 0 && numberOfDoors < MAX_NUMBER_OF_DOORS)
-			this.numberOfDoors = numberOfDoors;
+		if(numberOfDoors > 0 && numberOfDoors < MAX_NUMBER_OF_DOORS)
+		this.numberOfDoors = numberOfDoors;
 	}
 
 	public int getNumberOfShelves() {
@@ -42,17 +36,21 @@ public class Fridge extends HomeTech {
 	}
 
 	public void setNumberOfShelves(int numberOfShelves) {
-		if (numberOfShelves > 0 && numberOfShelves < MAX_NUMBERS_OF_SHELVES)
-			this.numberOfShelves = numberOfShelves;
+		if(numberOfShelves > 0 && numberOfShelves < MAX_NUMBERS_OF_SHELVES)
+		this.numberOfShelves = numberOfShelves;
 	}
-
-	public boolean hasFreezer() {
+	
+	public boolean isHasFreezer() {
 		return freezer;
 	}
+
 
 	public void showInfo() {
 		System.out.println(this.getBrand() + " " + this.getManufaturer() + " " + this.getPrice());
 		System.out.println(this.getNumberOfDoors() + " " + this.getLitres() + " " + this.getNumberOfShelves() + " "
 				+ this.hasFreezer());
 	}
+
+
+
 }
