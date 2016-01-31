@@ -4,11 +4,13 @@ public abstract class HomeTech extends Product {
 	
 	private static final int MAX_POWER_CONSUMPTION = 4000;
 	private int powerConsuptionInWatts;
-	private boolean isBuiltIn;
+	private boolean builtIn;
 	
-	public HomeTech(int powerConsuptionInWatts, boolean isBuiltIn) {
+	public HomeTech(String brand, String manufacturer, String model, double price, int quantity, int powerConsuptionInWatts, boolean builtIn) 
+	{
+		super(brand, manufacturer, model, price, quantity);
 		setPowerConsuptionInWatts(powerConsuptionInWatts);
-		this.isBuiltIn = isBuiltIn;
+		this.builtIn = builtIn;
 	}
 	
 	
@@ -19,10 +21,15 @@ public abstract class HomeTech extends Product {
 		if(powerConsuptionInWatts > 0 && powerConsuptionInWatts < MAX_POWER_CONSUMPTION)
 		this.powerConsuptionInWatts = powerConsuptionInWatts;
 	}
+	
 	public boolean isBuiltIn() {
-		return isBuiltIn;
+		return builtIn;
 	}
 	
-	
+	@Override
+	public void showInfo(){
+		super.showInfo();
+		System.out.print(",power consuption:" + this.getPowerConsuptionInWatts() + ", can be build in:" + this.isBuiltIn() + ", ");
+	}
 	
 }

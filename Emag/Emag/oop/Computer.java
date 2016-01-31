@@ -10,7 +10,9 @@ public abstract class Computer extends Product {
 	private int ramMBs;
 	private int hddCapacityGBs;
 
-	public Computer(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs) {
+	public Computer(String brand, String manufacturer, String model, double price, int quantity,
+			String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs) {
+		super(brand, manufacturer, model, price, quantity);
 		setOperatingSystem(operatingSystem);
 		setProcessor(processor);
 		this.videoCard = videoCard;
@@ -60,5 +62,11 @@ public abstract class Computer extends Product {
 			this.hddCapacityGBs = hddCapacityGBs;
 		}
 	}
-
+	
+	@Override
+	public void showInfo(){
+		super.showInfo();
+		System.out.print(this.getOperatingSystem() + " " + this.getProcessor() + " " + this.getHddCapacityGBs() + " " + this.getRamMBs() + " " 
+				+ this.hasVideoCard() + " ");
+	}
 }

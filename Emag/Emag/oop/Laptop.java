@@ -9,9 +9,10 @@ public class Laptop extends Computer {
 	private double weight;
 	private boolean webcam;
 	
-	public Laptop(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs,
+	public Laptop(String brand, String manufacturer, String model, double price, int quantity,
+			String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs,
 			boolean touchScreen, double displaySize, double weight, boolean webcam) {
-		super(operatingSystem, processor, videoCard, ramMBs, hddCapacityGBs);
+		super(brand, manufacturer, model, price, quantity, operatingSystem, processor, videoCard, ramMBs, hddCapacityGBs);
 		this.touchScreen = touchScreen;
 		setDisplaySize(displaySize);
 		setWeight(weight);
@@ -21,6 +22,7 @@ public class Laptop extends Computer {
 	public boolean hasTouchScreen() {
 		return touchScreen;
 	}
+	
 	public double getDisplaySize() {
 		return displaySize;
 	}
@@ -29,9 +31,11 @@ public class Laptop extends Computer {
 		this.displaySize = displaySize;
 		}
 	}
+	
 	public double getWeight() {
 		return weight;
 	}
+	
 	public void setWeight(double weight) {
 		if(weight > 0 && weight < MAX_WEIGHT){
 		this.weight = weight;
@@ -40,10 +44,10 @@ public class Laptop extends Computer {
 	public boolean hasWebcam() {
 		return webcam;
 	}
-
+	
 	@Override
-	public void showInfo() {
-		// TODO Auto-generated method stub
-		
+	public void showInfo(){
+		super.showInfo();
+		System.out.println(this.getDisplaySize() + " " + this.getWeight() + " " + this.hasTouchScreen() + " " + this.hasWebcam());
 	}
 }

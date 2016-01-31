@@ -10,9 +10,10 @@ public class Fridge extends HomeTech {
 	private int numberOfShelves;
 	private boolean freezer;
 
-	public Fridge(int powerConsuptionInWatts, boolean isBuiltIn, int liters, int numberOfDoors, int numberOfShelves,
-			boolean freezer) {
-		super(powerConsuptionInWatts, isBuiltIn);
+	public Fridge(String brand, String manufacturer, String model, double price, int quantity, 
+			int powerConsuptionInWatts, boolean builtIn, int liters, int numberOfDoors, int numberOfShelves, boolean freezer) 
+	{
+		super(brand, manufacturer, model, price, quantity, powerConsuptionInWatts, builtIn);
 		setLitres(liters);
 		setNumberOfDoors(numberOfDoors);
 		setNumberOfShelves(numberOfShelves);
@@ -50,9 +51,9 @@ public class Fridge extends HomeTech {
 		return freezer;
 	}
 
+	@Override
 	public void showInfo() {
-		System.out.println(this.getBrand() + " " + this.getManufaturer() + " " + this.getPrice());
-		System.out.println(this.getNumberOfDoors() + " " + this.getLitres() + " " + this.getNumberOfShelves() + " "
-				+ this.hasFreezer());
+		super.showInfo();
+		System.out.println(this.getNumberOfDoors() + " " + this.getLitres() + " " + this.getNumberOfShelves() + " " + this.hasFreezer());
 	}
 }

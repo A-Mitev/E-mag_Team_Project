@@ -24,3 +24,4 @@
 1454264365704	Rename field 'diplaySize'
 1454264444842	Extract constant 'MAX_INCHES_FOR_DISPLAY'
 1454264507950	Extract constant 'MAX_WEIGHT'
+1454274041863	Delete element

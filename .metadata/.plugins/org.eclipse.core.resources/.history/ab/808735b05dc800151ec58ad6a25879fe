@@ -1,0 +1,12 @@
+package oop;
+
+public class DEMO {
+
+	public static void main(String[] args) {
+		
+		Product pechka = new Oven("Samsung", "Hungary", "1112", 120, 10, 120, false, true, true, false);
+		pechka.showInfo();
+		
+	}
+
+}
