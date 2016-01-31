@@ -10,3 +10,5 @@
 1454258728106	Rename field 'VCablesBundled'
 1454259341441	Extract constant 'MAX_BTU_VALUE'
 1454259372220	Extract constant 'MAX_DBS_VALUE'
+1454260565046	Rename field 'isWaterCooled'
+1454260573318	Rename field 'isAllInOne'

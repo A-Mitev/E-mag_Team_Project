@@ -5,7 +5,7 @@ public class DesktopPC extends Computer {
 	private boolean waterCooled;
 	private boolean allInOne;
 	
-	public DesktopPC(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs, boolean waterCooled, boolean allInOne) {
+	public DesktopPC(String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs) {
 		super(operatingSystem, processor, videoCard, ramMBs, hddCapacityGBs);
 		this.waterCooled = waterCooled;
 		this.allInOne = allInOne;
