@@ -1,0 +1,57 @@
+package oop;
+
+public abstract class SmartTech extends Product {
+	
+	private String mobileOS;
+	private double displaySize;
+	private int batteryCapacity;
+	private boolean hasHeadphones;
+	private boolean hasSDCard;
+	
+	SmartTech(String brand, String manufacturer, String model, double price, int quantity) {
+		super(brand, manufacturer, model, price, quantity);
+	}
+
+	public String getMobileOS() {
+		return mobileOS;
+	}
+	public void setMobileOS(String mobileOS) {
+		if(!mobileOS.equals(null) && !mobileOS.equals("")){
+			this.mobileOS = mobileOS;
+		}
+	}
+
+	public double getDisplaySize() {
+		return displaySize;
+	}
+	public void setDisplaySize(double displaySize) {
+		if(displaySize > 0){
+			this.displaySize = displaySize;
+		}
+	}
+
+	public int getBatteryCapacity() {
+		return batteryCapacity;
+	}
+	public void setBatteryCapacity(int batteryCapacity) {
+		if(batteryCapacity > 0){
+			this.batteryCapacity = batteryCapacity;
+		}
+	}
+
+	public boolean isHasHeadphones() {
+		return hasHeadphones;
+	}
+
+	public boolean isHasSDCard() {
+		return hasSDCard;
+	}
+	
+	@Override
+	public void showInfo(){
+		super.showInfo();
+		System.out.println(", mobile operating system:" + this.getMobileOS() + ", display size:" + this.getDisplaySize() + ", battery capacity:" + this.getBatteryCapacity() + 
+				", included headphones:" + this.isHasHeadphones() + ", SD card slot:" + this.isHasSDCard());
+	}
+	
+}

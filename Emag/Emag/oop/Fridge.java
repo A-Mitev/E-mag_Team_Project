@@ -54,6 +54,7 @@ public class Fridge extends HomeTech {
 	@Override
 	public void showInfo() {
 		super.showInfo();
-		System.out.println(this.getNumberOfDoors() + " " + this.getLitres() + " " + this.getNumberOfShelves() + " " + this.hasFreezer());
+		System.out.println("number of doors:" + this.getNumberOfDoors() + ", litres:" + this.getLitres() + ", number of shelves:" + this.getNumberOfShelves() + 
+				", has freezer:" + this.hasFreezer());
 	}
 }

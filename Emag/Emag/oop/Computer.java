@@ -66,7 +66,7 @@ public abstract class Computer extends Product {
 	@Override
 	public void showInfo(){
 		super.showInfo();
-		System.out.print(",operation system:" + this.getOperatingSystem() + ", processor:" + this.getProcessor() + ", HDD:" + this.getHddCapacityGBs() +
-				", RAM:" + this.getRamMBs() + ", VideoCard:" + this.hasVideoCard() + " ");
+		System.out.print("operation system:" + this.getOperatingSystem() + ", processor:" + this.getProcessor() + ", HDD:" + this.getHddCapacityGBs() +
+				", RAM:" + this.getRamMBs() + ", VideoCard:" + this.hasVideoCard() + ", ");
 	}
 }

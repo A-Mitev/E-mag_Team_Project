@@ -1,15 +1,15 @@
 package oop;
 
 public abstract class Product implements IProduct{
+	
 	private static int countIDs = 10000;
 	private double price;
 	private boolean available;
 	private int quantity;
 	private String manufacturer;
 	private String brand;
-	private int productID;//dobavih product ID
-	private String model;//dobavih model
-	
+	private int productID;
+	private String model;
 	
 	Product(String brand, String manufacturer, String model, double price, int quantity){
 		setBrand(brand);

@@ -1,0 +1,48 @@
+package oop;
+
+public class TV extends AudioVisual {
+	
+	private int size;
+	private boolean led;
+	private boolean smart;
+	private boolean fullHD;
+	
+	public TV(String brand, String manufacturer, String model, double price, int quantity, int audioOutputPower,
+			boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled, int size, boolean led,
+			boolean smart, boolean fullHD) {
+		super(brand, manufacturer, model, price, quantity, audioOutputPower, wifiCapable, remoteControl,
+				aVCablesBundled);
+		setSize(size);
+		this.led = led;
+		this.smart = smart;
+		this.fullHD = fullHD;
+	}
+
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		if(size > 0){
+			this.size = size;
+		}
+	}
+	
+	public boolean isLed() {
+		return led;
+	}
+
+	public boolean isSmart() {
+		return smart;
+	}
+
+	public boolean isFullHD() {
+		return fullHD;
+	}
+
+	@Override
+	public void showInfo() {
+		super.showInfo();
+		System.out.println("size:" + this.getSize() + ", LED:" + this.isLed() + ", SmartTV:" + this.isSmart() + ", FullHD:" + this.isFullHD());
+	}
+	
+}

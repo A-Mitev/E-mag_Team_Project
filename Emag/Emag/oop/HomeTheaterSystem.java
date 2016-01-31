@@ -2,16 +2,18 @@ package oop;
 
 public class HomeTheaterSystem extends AudioVisual {
 
-	private static final int MAX_NUMBER_OF_SPEAKERS = 10;
+	private static final int MAX_NUMBER_OF_SPEAKERS = 4;
+	private static final int MAX_NUMBER_OF_DISCS = 3;
 	private int numberOfSpeakers;
 	private int numberOfDiscs;
 	private boolean tHXCertified;
 	private boolean bluRayCapable;
 	// Outputs collection
 
-	public HomeTheaterSystem(int audioOutputPower, boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled,
+	public HomeTheaterSystem(String brand, String manufacturer, String model, double price, int quantity,
+			int audioOutputPower, boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled,
 			int numberOfSpeakers, int numberOfDiscs, boolean tHXCertified, boolean bluRayCapable) {
-		super(audioOutputPower, wifiCapable, remoteControl, aVCablesBundled);
+		super(brand, manufacturer, model, price, quantity, audioOutputPower, wifiCapable, remoteControl, aVCablesBundled);
 		setNumberOfSpeakers(numberOfSpeakers);
 		setNumberOfDiscs(numberOfDiscs);
 		this.tHXCertified = tHXCertified;
@@ -21,7 +23,6 @@ public class HomeTheaterSystem extends AudioVisual {
 	public int getNumberOfSpeakers() {
 		return numberOfSpeakers;
 	}
-
 	public void setNumberOfSpeakers(int numberOfSpeacers) {
 		if (numberOfSpeacers > 0 && numberOfSpeacers < MAX_NUMBER_OF_SPEAKERS) {
 			this.numberOfSpeakers = numberOfSpeacers;
@@ -31,9 +32,8 @@ public class HomeTheaterSystem extends AudioVisual {
 	public int getNumberOfDiscs() {
 		return numberOfDiscs;
 	}
-
 	public void setNumberOfDiscs(int numberOfDiscs) {
-		if (numberOfDiscs > 0) {
+		if (numberOfDiscs > 0 && numberOfDiscs < MAX_NUMBER_OF_DISCS) {
 			this.numberOfDiscs = numberOfDiscs;
 		}
 	}
@@ -48,7 +48,8 @@ public class HomeTheaterSystem extends AudioVisual {
 
 	@Override
 	public void showInfo() {
-		// TODO Auto-generated method stub
-
+		super.showInfo();
+		System.out.println("number of speakers:" + this.getNumberOfSpeakers() + ", discs slots:" + this.getNumberOfDiscs() + 
+				", has THX certificate:" + this.isTHXCertified() + ", has BluRay cables:" + this.isBluRayCapable());
 	}
 }

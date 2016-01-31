@@ -45,6 +45,6 @@ public class WashingMachine extends HomeTech{
 	@Override
 	public void showInfo(){
 		super.showInfo();
-		System.out.println(this.isSlim() + " " + this.hasDryer() + " " + this.getVolume() + " " + this.getRpm());
+		System.out.println("slim:" + this.isSlim() + ", has dryer:" + this.hasDryer() + ", volume:" + this.getVolume() + ", RPM:" + this.getRpm());
 	}
 }

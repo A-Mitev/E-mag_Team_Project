@@ -1,0 +1,53 @@
+package oop;
+
+public class Laptop extends Computer {
+	
+	private static final int MAX_WEIGHT = 10;
+	private static final int MAX_INCHES_FOR_DISPLAY = 20;
+	private boolean touchScreen;
+	private double displaySize;
+	private double weight;
+	private boolean webcam;
+	
+	public Laptop(String brand, String manufacturer, String model, double price, int quantity,
+			String operatingSystem, String processor, boolean videoCard, int ramMBs, int hddCapacityGBs,
+			boolean touchScreen, double displaySize, double weight, boolean webcam) {
+		super(brand, manufacturer, model, price, quantity, operatingSystem, processor, videoCard, ramMBs, hddCapacityGBs);
+		this.touchScreen = touchScreen;
+		setDisplaySize(displaySize);
+		setWeight(weight);
+		this.webcam = webcam;
+	}
+	
+	public boolean hasTouchScreen() {
+		return touchScreen;
+	}
+	
+	public double getDisplaySize() {
+		return displaySize;
+	}
+	public void setDisplaySize(double displaySize) {
+		if(displaySize > 0 && displaySize < MAX_INCHES_FOR_DISPLAY){
+		this.displaySize = displaySize;
+		}
+	}
+	
+	public double getWeight() {
+		return weight;
+	}
+	
+	public void setWeight(double weight) {
+		if(weight > 0 && weight < MAX_WEIGHT){
+		this.weight = weight;
+		}
+	}
+	public boolean hasWebcam() {
+		return webcam;
+	}
+	
+	@Override
+	public void showInfo(){
+		super.showInfo();
+		System.out.println(", Inches:" + this.getDisplaySize() + ", KG:" + this.getWeight() + ", Touchscreen:" + this.hasTouchScreen() + ", webcam:" + this.hasWebcam());
+	}
+}

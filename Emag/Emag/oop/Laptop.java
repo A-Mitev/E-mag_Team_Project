@@ -48,6 +48,6 @@ public class Laptop extends Computer {
 	@Override
 	public void showInfo(){
 		super.showInfo();
-		System.out.println(", Inches:" + this.getDisplaySize() + ", KG:" + this.getWeight() + ", Touchscreen:" + this.hasTouchScreen() + ", webcam:" + this.hasWebcam());
+		System.out.println("Inches:" + this.getDisplaySize() + ", KG:" + this.getWeight() + ", Touchscreen:" + this.hasTouchScreen() + ", webcam:" + this.hasWebcam());
 	}
 }

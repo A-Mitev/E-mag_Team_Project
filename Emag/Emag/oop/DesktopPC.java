@@ -23,7 +23,7 @@ public class DesktopPC extends Computer {
 	@Override
 	public void showInfo() {
 		super.showInfo();
-		System.out.println(", All in one:" + this.isAllInOne() + ", Cooling System:" + this.isWaterCooled());
+		System.out.println("All in one:" + this.isAllInOne() + ", Cooling System:" + this.isWaterCooled() + ", ");
 	}
 	
 }

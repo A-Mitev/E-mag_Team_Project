@@ -1,0 +1,42 @@
+package oop;
+
+public abstract class AudioVisual extends Product {
+
+	private static final int MAX_AVAILABLE_SOUND_POWER = 4000;
+
+	private int audioOutputPower;
+	private boolean wifiCapable;
+	private boolean remoteControl;
+	private boolean aVCablesBundled;
+	
+
+	public AudioVisual(int audioOutputPower, boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled) {
+		setAudioOutputPower(audioOutputPower);
+		this.wifiCapable = wifiCapable;
+		this.remoteControl = remoteControl;
+		this.aVCablesBundled = remoteControl;
+	}
+
+	public int getAudioOutputPower() {
+		return audioOutputPower;
+	}
+
+	public void setAudioOutputPower(int audioOutputPower) {
+		if (audioOutputPower > 0 && audioOutputPower < MAX_AVAILABLE_SOUND_POWER) {
+			this.audioOutputPower = audioOutputPower;
+		}
+	}
+
+	public boolean hasWifiCapable() {
+		return wifiCapable;
+	}
+
+
+	public boolean hasRemoteControl() {
+		return remoteControl;
+	}
+
+	public boolean hasAVCablesBundled() {
+		return aVCablesBundled;
+	}
+}

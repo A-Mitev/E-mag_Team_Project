@@ -42,7 +42,7 @@ public class AirConditioner extends HomeTech {
 	@Override
 	public void showInfo() {
 		super.showInfo();
-		System.out.println(this.getbTUs() + " " + this.getDbs() + " " + this.isSplit());
+		System.out.println("BTU:" + this.getbTUs() + ", BDS" + this.getDbs() + ", is two part AC:" + this.isSplit());
 	}
 
 }

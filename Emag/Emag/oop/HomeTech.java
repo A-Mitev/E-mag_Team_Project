@@ -29,7 +29,7 @@ public abstract class HomeTech extends Product {
 	@Override
 	public void showInfo(){
 		super.showInfo();
-		System.out.print(",power consuption:" + this.getPowerConsuptionInWatts() + ", can be build in:" + this.isBuiltIn() + ", ");
+		System.out.print("power consuption:" + this.getPowerConsuptionInWatts() + ", can be build in:" + this.isBuiltIn() + ", ");
 	}
 	
 }
