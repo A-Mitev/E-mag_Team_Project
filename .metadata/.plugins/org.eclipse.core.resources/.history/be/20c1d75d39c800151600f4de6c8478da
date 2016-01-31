@@ -7,14 +7,14 @@ public abstract class AudioVisual extends Product {
 	private int audioOutputPower;
 	private boolean wifiCapable;
 	private boolean remoteControl;
-	private boolean aVCablesBundled;
+	private boolean AVCablesBundled;
 	
 
 	public AudioVisual(int audioOutputPower, boolean wifiCapable, boolean remoteControl, boolean aVCablesBundled) {
 		setAudioOutputPower(audioOutputPower);
-		hasWifiCapable();
-		hasRemoteControl();
-		hasAVCablesBundled();
+		isWifiCapable();
+		isRemoteControl();
+		isAVCablesBundled();
 	}
 
 	public int getAudioOutputPower() {
@@ -27,16 +27,16 @@ public abstract class AudioVisual extends Product {
 		}
 	}
 
-	public boolean hasWifiCapable() {
+	public boolean isWifiCapable() {
 		return wifiCapable;
 	}
 
 
-	public boolean hasRemoteControl() {
+	public boolean isRemoteControl() {
 		return remoteControl;
 	}
 
-	public boolean hasAVCablesBundled() {
-		return aVCablesBundled;
+	public boolean isAVCablesBundled() {
+		return AVCablesBundled;
 	}
 }
