@@ -4,18 +4,21 @@ import java.util.ArrayList;
 
 public class WareHouse {
 	
-	ArrayList<Product> inventory;
+	private ArrayList<Product> inventory;
 	
-	WareHouse(){
-		
+	WareHouse(int capacity){
+		this.inventory.ensureCapacity(capacity);
 	}
 	
-	Product getProduct(){
-		return null;
-		
+//	Product getProduct(){
+//		
+//	}
+	
+	protected void addProduct(Product product){
+		inventory.add(product);
 	}
 	
-	void deleteProduct(){
-		
+	public void deleteProduct(Product product){
+		inventory.remove(product);
 	}
 }

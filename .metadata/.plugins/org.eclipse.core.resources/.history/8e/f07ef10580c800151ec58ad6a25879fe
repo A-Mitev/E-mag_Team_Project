@@ -2,20 +2,15 @@ package oop;
 
 public abstract class User {
 	
-	protected WareHouse warehouse;
 	private static final int GSM_NUMBER_LENGTH = 10;
-	private boolean adminRights;
 	private String name;
 	private String email;
 	private String gsm;
 	private String password;//passworda ne sum siguren dali trqbva da e taka ako nqkoi znae drug nachin e hubavo da go napishe
 	
-	public User(String name, String email, String gsm, WareHouse warehouse){
+	public User(String name, String email, String gsm){
 		this.setEmail(email);
 		this.setGsm(gsm);
-		if(!warehouse.equals(null)){
-			this.warehouse = warehouse;
-		}
 	}
 
 	public String getName() {
@@ -43,13 +38,6 @@ public abstract class User {
 		if(gsm.startsWith("08") && gsm.length() == GSM_NUMBER_LENGTH && !gsm.equals(null) && !gsm.equals("")){
 			this.gsm = gsm;
 		}
-	}
-	
-	public boolean isAdming(){
-		return adminRights;
-	}
-	public void setAdminRights(boolean adminRights){
-		this.adminRights = adminRights;
 	}
 	
 }

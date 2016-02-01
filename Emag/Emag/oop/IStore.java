@@ -1,6 +1,6 @@
 package oop;
 
 public interface IStore {
-	void addProduct();
-	void removeProduct();
+	void addProduct(Product product);
+	void removeProduct(Product product);
 }

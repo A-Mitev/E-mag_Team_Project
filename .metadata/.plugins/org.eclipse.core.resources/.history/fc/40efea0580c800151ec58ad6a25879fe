@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 public class Customer extends User implements IStore{
 	
-	private static final boolean ADMIN_RIGHTS = false;
 	private Cart cart;
 	private String address;
 	private ArrayList<Product> likedProducts;
 	
-	public Customer(String name, String email, String gsm, String address, WareHouse warehouse) {
-		super(name, email, gsm, warehouse);
+	public Customer(String name, String email, String gsm, String address) {
+		super(name, email, gsm);
 		this.setAddress(address);
-		this.setAdminRights(ADMIN_RIGHTS);
 	}
 	
 	public String getAddress(){

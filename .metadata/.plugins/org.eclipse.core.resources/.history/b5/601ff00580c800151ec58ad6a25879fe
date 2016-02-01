@@ -1,0 +1,13 @@
+package oop;
+
+public class Admin extends User{
+
+	void addNewProduct(Product product) {
+
+	}
+	
+	public Admin(String name, String email, String gsm) {
+		super(name, email, gsm);
+	}
+	
+}
