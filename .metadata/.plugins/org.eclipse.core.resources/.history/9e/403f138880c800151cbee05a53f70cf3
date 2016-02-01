@@ -8,14 +8,12 @@ public class Admin extends User{
 		this.setAdminRights(ADMIN_RIGHTS);
 	}
 	
-	//dobavq product v warehouse inventory
 	public void addNewProductInStore(Product product) {
 		if(!product.equals(null)){
 			this.warehouse.addProduct(product);
 		}
 	}
 	
-	//premahva product v warehouse inventory
 	public void deleteProductFromStore(Product product){
 		this.warehouse.deleteProduct(product);
 	}

@@ -12,14 +12,12 @@ public class Cart implements IStore{
 		products.ensureCapacity(30);
 	}
 	
-	//dobavq product v kolichkata
 	@Override
 	public void addProduct(Product product) {
 		products.add(product);
 		this.totalPrice+=product.getPrice();
 	}
 	
-	//premahva product v kolichkata
 	@Override
 	public void removeProduct(Product product) {
 		this.totalPrice -= product.getPrice();

@@ -24,7 +24,6 @@ public class Customer extends User implements IStore{
 		}
 	}
 
-	//dobavq product v kolichkata chrez izvikvane na metoda na kolichakta dobavi
 	@Override
 	public void addProduct(Product product) {
 		if(!product.equals(null)){
@@ -32,7 +31,6 @@ public class Customer extends User implements IStore{
 		}
 	}
 
-	//premahva product v kolichkata chrez izvikvane na metoda na kolichkata dobavi
 	@Override
 	public void removeProduct(Product product) {
 		cart.removeProduct(product);

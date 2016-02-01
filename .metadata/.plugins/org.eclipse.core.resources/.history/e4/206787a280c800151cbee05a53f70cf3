@@ -45,7 +45,6 @@ public abstract class User {
 		}
 	}
 	
-	//chudq se vse oshte kude da izpolzvam adminskite prava, no imam edna ideq i moga da q spodelq kato se vidim ili chuem
 	public boolean isAdming(){
 		return adminRights;
 	}

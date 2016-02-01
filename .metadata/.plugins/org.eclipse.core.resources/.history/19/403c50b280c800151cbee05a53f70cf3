@@ -14,12 +14,10 @@ public class WareHouse {
 //		
 //	}
 	
-	//dobavqne na nov product v inventory-to
 	protected void addProduct(Product product){
 		inventory.add(product);
 	}
 	
-	//premahvane na product ot inventory-to
 	public void deleteProduct(Product product){
 		inventory.remove(product);
 	}
