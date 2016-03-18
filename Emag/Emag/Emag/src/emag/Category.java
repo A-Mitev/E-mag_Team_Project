@@ -1,0 +1,28 @@
+package emag;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Category {
+	
+	private int categoryId;
+	private String name;
+	
+	public Category(int id, String name) {
+		this.name = name;
+		this.setCategoryId(id);
+	}
+	
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+}

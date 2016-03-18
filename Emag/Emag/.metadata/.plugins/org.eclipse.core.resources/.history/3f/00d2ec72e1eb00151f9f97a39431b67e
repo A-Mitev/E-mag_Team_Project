@@ -1,0 +1,33 @@
+package emagDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import connection.DBConnection;
+import emag.Category;
+import exceptions.EmagException;
+
+public class CategoryDAO implements ICategoryDAO{
+
+	/**
+	 * 
+	 */
+	@Override
+	public void addCategory(Category category) throws EmagException {
+		if(category != null){
+			try{
+				Connection conn = DBConnection.getInstance().getConn();
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO subcategory VALUES(null, ?);");
+				ps.setString(1, category.getName());
+				ps.executeUpdate();	
+			}catch(SQLException e){
+				throw new EmagException("Can not add that category!", e);
+			}
+		}else{
+			throw new EmagException("Can not be added a category that is null");
+		}
+		
+	}
+
+}

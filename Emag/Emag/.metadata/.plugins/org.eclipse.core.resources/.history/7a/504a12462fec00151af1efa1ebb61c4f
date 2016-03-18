@@ -1,0 +1,18 @@
+package emagDAO;
+
+import java.util.List;
+
+import emag.Product;
+import exceptions.EmagException;
+
+public interface IProductDAO {
+
+	int addProduct(Product p) throws EmagException;
+
+	void updateProduct(Product p, double price) throws EmagException;
+
+	void removeProduct(Product p);
+
+	List<Product> getAllProducts();
+
+}

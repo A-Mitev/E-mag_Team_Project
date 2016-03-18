@@ -1,0 +1,10 @@
+package emagDAO;
+
+import emag.SubCategory;
+import exceptions.EmagException;
+
+public interface ISubCategoryDAO {
+	
+	void addSubCategory(SubCategory sub) throws EmagException;
+	
+}

@@ -1,0 +1,16 @@
+package emagDAO;
+
+import emag.Product;
+import exceptions.EmagException;
+
+public interface IProductDAO {
+
+	int addProduct(Product p) throws EmagException;
+
+	void updateProduct(Product p, double price) throws EmagException;
+
+	void removeProduct(Product p);
+
+	void getAllProducts();
+
+}

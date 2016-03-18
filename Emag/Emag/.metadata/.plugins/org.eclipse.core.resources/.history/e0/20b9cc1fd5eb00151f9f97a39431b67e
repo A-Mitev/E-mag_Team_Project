@@ -1,0 +1,13 @@
+package emag;
+
+public interface IProductDAO {
+
+	void addProduct(Product p);
+
+	void updateProduct(Product p, double price);
+
+	void removeProduct(Product p);
+
+	void getAllProducts();
+
+}

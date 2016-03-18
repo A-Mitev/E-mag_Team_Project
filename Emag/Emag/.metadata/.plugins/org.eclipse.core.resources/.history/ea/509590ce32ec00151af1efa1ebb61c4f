@@ -1,0 +1,138 @@
+package emagDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import connection.DBConnection;
+import emag.Product;
+import exceptions.EmagException;
+
+public class ProductDAO implements IProductDAO {
+	
+	
+	
+	
+	/**
+	 * Adds new Product to the database.
+	 * 
+	 * @param product - product POJO to be added.
+	 * @return 
+	 * 
+	 * @throws EmagException when product cannot be added or is null.
+	 */
+	@Override
+	public int addProduct(Product product) throws EmagException {
+		if(product != null){
+				try {
+					Connection conn = DBConnection.getInstance().getConn();
+					PreparedStatement ps = conn.prepareStatement("INSERT INTO product VALUES(null , ?, ?, ?, ?, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
+					ps.setInt(1, product.getSubCat().getSubId());
+					ps.setDouble(2, product.getPrice());
+					ps.setString(3, product.getProperties());
+					ps.setString(4, product.getBrand());
+					ps.setString(5, product.getModel());
+					ps.executeUpdate();
+					
+					ResultSet result = ps.getGeneratedKeys();
+					result.next();
+					return result.getInt(1);
+				}
+				catch(SQLException e) {
+					throw new EmagException("The product can't be added right now.", e);
+				}
+		}else{
+			throw new EmagException("Can not add product which is null!");
+		}
+		
+	}
+
+	
+	/**
+	 * Update existing product in the database.
+	 * 
+	 * @param product = product POJO to be updated.
+	 * 
+	 * @throws EmagException when product cannot be updated or is null.
+	 */
+	@Override
+	public void updateProduct(Product product, double price) throws EmagException {
+		if(product != null && price > 0){
+			try {
+				Connection conn = DBConnection.getInstance().getConn();
+				PreparedStatement ps = conn.prepareStatement("UPDATE Product SET ProductPrice = ? WHERE Model = ?;");
+				ps.setDouble(1, price);
+				ps.setString(2, product.getModel());
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				throw new EmagException("Can not update the product right now!", e);
+			}
+		}else{
+			throw new EmagException("Can not update on product which is null!");
+		}
+	}
+	
+	
+	@Override
+	public void removeProduct(Product product) {
+		
+	}
+
+
+	@Override
+	public List<Product> getAllProducts() throws EmagException, SQLException {
+		Connection conn = DBConnection.getInstance().getConn();
+		Statement statement = conn.createStatement();
+		List<Product> products = new ArrayList<Product>();
+		Product product = null;
+		ResultSet rs = null;
+		try{
+			rs = statement.executeQuery("SELECT * FROM product");
+			while(rs.next()){
+				product = new Product();
+				product.setId(rs.getInt("idProduct"));
+				product.setPrice(rs.getDouble("ProdutPrice"));
+				product.setProperties(rs.getString("Properties"));
+				product.setBrand(rs.getString("Brand"));
+				product.setModel(rs.getString("Model"));
+				
+				products.add(product);
+			}
+		}catch (SQLException e) {
+			throw new EmagException("Can not show the products right now!", e);
+		}
+		return products;
+	}
+	
+	
+	@Override
+	public List<Product> getSelectedProducts(String brand) throws SQLException, EmagException{
+		Connection conn = DBConnection.getInstance().getConn();
+		Statement statement = conn.createStatement();
+		List<Product> products = new ArrayList<Product>();
+		Product product = null;
+		ResultSet rs = null;
+		try{
+			rs = statement.executeQuery("SELECT * FROM product");
+			while(rs.next()){
+				product = new Product();
+				product.setId(rs.getInt("idProduct"));
+				product.setPrice(rs.getDouble("ProdutPrice"));
+				product.setProperties(rs.getString("Properties"));
+				product.setBrand(rs.getString("Brand"));
+				product.setModel(rs.getString("Model"));
+				
+				products.add(product);
+			}
+		}catch (SQLException e) {
+			throw new EmagException("Can not show the products right now!", e);
+		}
+		return products;
+	}
+	
+	
+}

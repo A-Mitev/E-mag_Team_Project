@@ -1,0 +1,27 @@
+package emag;
+
+import java.util.Map;
+
+public class Order {
+	
+	private int orderId;
+	private Map<Product, Integer> orderOfProducts;
+	private Client client;	
+	private double totalPrice;
+	
+	public Order(int orderId, Map<Product, Integer> productsFromCart, Client client) {
+		this.orderOfProducts=productsFromCart;
+		this.client = client;
+		this.setOrderId(orderId);
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	
+	
+}

@@ -1,0 +1,23 @@
+package emagDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import connection.DBConnection;
+import emag.SubCategory;
+
+public class SubCategoryDAO implements ISubCategoryDAO{
+
+	public void addSubCategory(SubCategory sub){
+		if(sub != null){
+			try{
+				Connection conn = DBConnection.getInstance().getConn();
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO subcategory VALUES(null, ?, ?);");
+				ps.setInt(1, sub.getCategory().getCategoryId());
+				ps.setString(2, sub.getName());
+				ps.executeUpdate();
+				
+			}
+		}
+	}
+}

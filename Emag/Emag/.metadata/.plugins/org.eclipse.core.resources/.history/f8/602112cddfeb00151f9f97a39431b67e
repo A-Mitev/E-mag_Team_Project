@@ -1,0 +1,91 @@
+package emagDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import connection.DBConnection;
+import emag.Product;
+import exceptions.EmagException;
+
+public class ProductDAO implements IProductDAO {
+	
+	
+	
+	
+	/**
+	 * @throws EmagException 
+	 * Adds new Product to the database.
+	 * 
+	 * @param product - product POJO to be added.
+	 * 
+	 * @throws EmagException when product cannot be added or is null.
+	 * 
+	 */
+	@Override
+	public void addProduct(Product product) throws EmagException {
+		if(product != null){
+				try {
+					Connection conn = DBConnection.getInstance().getConn();
+					PreparedStatement ps = conn.prepareStatement("INSERT INTO Product VALUES(null , ?, ?, ?, ?, ?);");
+					ps.setInt(1, product.getSubCat().getSubId());
+					ps.setDouble(2, product.getPrice());
+					ps.setString(3, product.getProperties());
+					ps.setString(4, product.getBrand());
+					ps.setString(5, product.getModel());
+					ps.executeUpdate();
+					
+					ResultSet result = ps.getGeneratedKeys();
+					result.next();
+				}
+				catch(SQLException e) {
+					e.printStackTrace();
+					throw new EmagException("The product can't be added right now.");
+				}
+		}else{
+			throw new EmagException("Can not add product which is null!");
+		}
+		
+	}
+
+	
+	/* (non-Javadoc)
+	 * @see emag.model.IProductDAO#updateProduct(emag.model.Product)
+	 */
+	@Override
+	public void updateProduct(Product product, double price) {
+	
+		try {
+			Connection conn = DBConnection.getInstance().getConn();
+			PreparedStatement ps = conn.prepareStatement("UPDATE Product SET ProductPrice = ? WHERE Model = ?;");
+			ps.setDouble(1, price);
+			ps.setString(2, product.getModel());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see emag.model.IProductDAO#removeProduct(emag.model.Product)
+	 */
+	@Override
+	public void removeProduct(Product product) {
+		
+	}
+
+
+	@Override
+	public void getAllProducts() {
+		Connection conn = DBConnection.getInstance().getConn();
+		
+	}
+	
+
+
+
+	
+}

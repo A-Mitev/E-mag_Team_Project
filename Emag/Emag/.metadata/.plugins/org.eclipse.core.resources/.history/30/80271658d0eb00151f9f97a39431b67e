@@ -1,0 +1,83 @@
+package emag.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class ProductDAO implements IProductDAO {
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see emag.model.IProductDAO#addProduct(emag.model.Product)
+	 */
+	@Override
+	public void addProduct(Product product) {
+		try {
+			Connection conn = DBConnection.getInstance().getConn();
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO Product VALUES(null , ?, ?, ?, ?, ?);");
+			ps.setInt(1, product.getSubCat().getSubId());
+			ps.setDouble(2, product.getPrice());
+			ps.setString(3, product.getProperties());
+			ps.setString(4, product.getBrand());
+			ps.setString(5, product.getModel());
+			ps.executeUpdate();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+	/* (non-Javadoc)
+	 * @see emag.model.IProductDAO#updateProduct(emag.model.Product)
+	 */
+	@Override
+	public void updateProduct(Product product, double price) {
+	
+		try {
+			Connection conn = DBConnection.getInstance().getConn();
+			PreparedStatement ps = conn.prepareStatement("UPDATE Product SET ProductPrice = ? WHERE Model = ?;");
+			ps.setDouble(1, price);
+			ps.setString(2, product.getModel());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see emag.model.IProductDAO#removeProduct(emag.model.Product)
+	 */
+	@Override
+	public void removeProduct(Product p) {
+		
+	}
+
+
+	@Override
+	public void getAllProducts(int i) {
+		
+		try {
+			Connection conn = DBConnection.getInstance().getConn();
+			Statement statement = conn.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM Product WHERE idProduct = " + i + ";");
+			result.next();
+			String resultFromTalbe = result.getNString(5);
+			System.out.println(resultFromTalbe);
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+
+
+
+	
+}

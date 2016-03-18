@@ -1,0 +1,9 @@
+package emagDAO;
+
+import emag.Client;
+
+public interface IClientDAO {
+
+	Client loginClient(String email, String password);
+
+}

@@ -1,0 +1,15 @@
+package emagDAO;
+
+import java.sql.Connection;
+
+import connection.DBConnection;
+import emag.Client;
+
+public class ClientDAO implements IClientDAO{
+	
+	@Override
+	public Client loginClient(String email, String password){
+		Connection conn = null;
+		
+	}
+}

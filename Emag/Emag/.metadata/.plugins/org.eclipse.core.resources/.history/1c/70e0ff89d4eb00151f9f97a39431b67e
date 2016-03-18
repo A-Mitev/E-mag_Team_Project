@@ -1,0 +1,17 @@
+package emag;
+
+public class TupoDemo {
+	public static void main(String[] args) throws EmagException {
+		ProductDAO dao = new ProductDAO();
+		dao.getAllProducts(4);
+		
+		Category cat = new Category(1, "Spas");
+		SubCategory sub = new SubCategory(1, cat, "Ivan");
+		Product product = new Product(1, sub, "Spas", "Malenkov", "25 godishen programetor, vse oshte ne e programist", 20000);
+		
+		//dao.addProduct(product);
+		
+		dao.updateProduct(product, 20000);
+		dao.getAllProducts(12);
+	}
+}

@@ -1,0 +1,5 @@
+package emagDAO;
+
+public interface IClientDAO {
+
+}

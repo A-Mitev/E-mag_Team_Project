@@ -1,0 +1,20 @@
+package test.emag;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import connection.DBConnection;
+
+public class TestEmagDAO {
+
+	@Test
+	public void testConnection() {
+		assertNotNull(DBConnection.getInstance().getConn());
+	}
+	
+	@Test
+	public void testAddProduct(){
+		
+	}
+}

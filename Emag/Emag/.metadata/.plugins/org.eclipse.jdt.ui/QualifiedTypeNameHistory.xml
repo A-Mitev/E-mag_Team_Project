@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="connection.DBConnection"/>
+<fullyQualifiedTypeName name="emagDAO.ProductDAO"/>
+<fullyQualifiedTypeName name="emag.Product"/>
+<fullyQualifiedTypeName name="emagDAO.SubCategoryDAO"/>
+<fullyQualifiedTypeName name="emagDAO.ISubCategoryDAO"/>
+<fullyQualifiedTypeName name="exceptions.EmagException"/>
+<fullyQualifiedTypeName name="emagDAO.ICategoryDAO"/>
+<fullyQualifiedTypeName name="emagDAO.CategoryDAO"/>
+<fullyQualifiedTypeName name="emag.Category"/>
+<fullyQualifiedTypeName name="emag.SubCategory"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="emag.Client"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="emagDAO.InvalidClientException"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+</qualifiedTypeNameHistroy>

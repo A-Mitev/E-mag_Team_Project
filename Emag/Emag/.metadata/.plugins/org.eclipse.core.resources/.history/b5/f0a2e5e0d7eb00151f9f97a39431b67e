@@ -1,0 +1,15 @@
+package emagDAO;
+
+import emag.Product;
+
+public interface IProductDAO {
+
+	void addProduct(Product p);
+
+	void updateProduct(Product p, double price);
+
+	void removeProduct(Product p);
+
+	String getAllProducts();
+
+}
