@@ -14,6 +14,19 @@ import exceptions.EmagException;
 
 public class ProductDAO implements IProductDAO {
 	
+	private static IProductDAO instance;
+	
+	public ProductDAO(){
+		
+	}
+	
+	public synchronized static IProductDAO getInstance(){
+		if(instance == null){
+			instance = new ProductDAO();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Adds new Product to the database.
 	 * 
@@ -23,21 +36,21 @@ public class ProductDAO implements IProductDAO {
 	 * @throws EmagException when product cannot be added or is null.
 	 */
 	@Override
-	public int addProduct(Product product) throws EmagException {
+	public void addProduct(Product product) throws EmagException {
 		if(product != null){
 				try {
 					Connection conn = DBConnection.getInstance().getConn();
-					PreparedStatement ps = conn.prepareStatement("INSERT INTO product VALUES(null , ?, ?, ?, ?, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
+					PreparedStatement ps = conn.prepareStatement("INSERT INTO Product VALUES(null , ?, ?, ?, ?, ?, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
 					ps.setInt(1, product.getSubCat().getSubId());
 					ps.setDouble(2, product.getPrice());
 					ps.setString(3, product.getProperties());
 					ps.setString(4, product.getBrand());
 					ps.setString(5, product.getModel());
+					ps.setString(6, product.getPhoto());
 					ps.executeUpdate();
 					
 					ResultSet result = ps.getGeneratedKeys();
 					result.next();
-					return result.getInt(1);
 				}
 				catch(SQLException e) {
 					throw new EmagException("The product can't be added right now.", e);
@@ -47,7 +60,7 @@ public class ProductDAO implements IProductDAO {
 		}
 		
 	}
-	
+
 	
 	/**
 	 * Update existing product in the database.
@@ -88,7 +101,7 @@ public class ProductDAO implements IProductDAO {
 		Product product = null;
 		ResultSet rs = null;
 		try{
-			rs = statement.executeQuery("SELECT * FROM product");
+			rs = statement.executeQuery("SELECT * FROM Product");
 			while(rs.next()){
 				product = new Product();
 				product.setId(rs.getInt("idProduct"));
@@ -96,7 +109,7 @@ public class ProductDAO implements IProductDAO {
 				product.setProperties(rs.getString("Properties"));
 				product.setBrand(rs.getString("Brand"));
 				product.setModel(rs.getString("Model"));
-				
+				product.setPhoto(rs.getString("picture"));
 				products.add(product);
 			}
 		}catch (SQLException e) {
@@ -109,25 +122,23 @@ public class ProductDAO implements IProductDAO {
 	@Override
 	public List<Product> getSelectedProducts(String brand) throws SQLException, EmagException{
 		Connection conn = DBConnection.getInstance().getConn();
-		Statement statement = conn.createStatement();
+		PreparedStatement statement = conn.prepareStatement("SELECT * FROM season5_java2_teamSpasDeyan.Product WHERE Brand = ?;");
+		statement.setString(1, brand);
 		List<Product> products = new ArrayList<Product>();
 		Product product = null;
 		ResultSet rs = null;
-		try{
-			rs = statement.executeQuery("SELECT * FROM product p WHERE p.Brand =" + brand);
+			rs = statement.executeQuery();
 			while(rs.next()){
 				product = new Product();
 				product.setId(rs.getInt("idProduct"));
-				product.setPrice(rs.getDouble("ProdutPrice"));
+				product.setPrice(rs.getDouble("ProductPrice"));
 				product.setProperties(rs.getString("Properties"));
 				product.setBrand(rs.getString("Brand"));
 				product.setModel(rs.getString("Model"));
-				
+				product.setPhoto(rs.getString("picture"));
 				products.add(product);
 			}
-		}catch (SQLException e) {
-			throw new EmagException("Can not show the products right now!", e);
-		}
+		
 		return products;
 	}
 	

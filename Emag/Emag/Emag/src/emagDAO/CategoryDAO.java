@@ -19,7 +19,7 @@ public class CategoryDAO implements ICategoryDAO{
 		if(category != null){
 			try{
 				Connection conn = DBConnection.getInstance().getConn();
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO category VALUES(null, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO Category VALUES(null, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
 				ps.setString(1, category.getName());
 				ps.executeUpdate();
 				

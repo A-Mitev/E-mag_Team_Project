@@ -9,18 +9,26 @@ import connection.DBConnection;
 import emag.Client;
 
 public class ClientDAO implements IClientDAO{
-	
 	private static IClientDAO instance;
 	
 	private ClientDAO() {
-		
+		// TODO Auto-generated constructor stub
 	}
+	
+	public synchronized static IClientDAO getInstance() {
+		if (instance == null) {
+			instance = new ClientDAO();
+		}
+		return instance;
+	}
+	
+	
 	@Override
 	public Client loginClient(String email, String password) throws InvalidClientException, SQLException, DBException{
 		Connection conn = null;
 		try{
 			conn = DBConnection.getInstance().getConn();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM client WHERE email = ? AND password = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Client WHERE email = ? AND password = ?");
 			ps.setString(1, email);
 			ps.setString(2, password);
 			ResultSet result = ps.executeQuery();
@@ -36,26 +44,7 @@ public class ClientDAO implements IClientDAO{
 		}catch(Exception e){
 			e.printStackTrace();
 			throw new DBException("Can not connect to the datebase right now. Sorry for the problems.", e);
-		}finally{
-			try{
-				if(conn!=null)
-					conn.close();
-			}catch(SQLException e){
-				e.printStackTrace();
-			}
 		}
+		
 	}
-	
-	public synchronized static IClientDAO getInstance() {
-		if (instance == null) {
-			instance = new ClientDAO();
-		}
-		return instance;
-	}
-	
-//	@Override
-//	public void createClient(String email, String password, String fullname){
-//		
-//		
-//	}
 }

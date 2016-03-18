@@ -1,0 +1,22 @@
+<div id="searchBar">
+	<div>
+    	<a href="index.html"><img src="images/logo-login.png" class="logo" /></a>
+    </div>
+  	<div>
+        <form action="./Search" method="post">
+            <input type="text" value="search" name = "searchBrand"/>
+        </form>
+    </div>
+  	<div>
+    	<img src="images/man-icon.png" />
+        <span><a href="login.html">Моят Акаунт</a></span>
+    </div>
+    <div>
+    	<img src="images/Heart-icon.png" />
+        <span>Любими</span>
+    </div>
+    <div>
+    	<img src="images/cart-icon.png" />
+        <span><a href="cart.html">Количка</a></span>
+    </div>
+</div>

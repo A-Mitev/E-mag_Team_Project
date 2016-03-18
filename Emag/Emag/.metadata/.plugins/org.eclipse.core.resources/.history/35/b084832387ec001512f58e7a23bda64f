@@ -1,0 +1,100 @@
+package servlets;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emag.Product;
+import emagDAO.IProductDAO;
+import emagDAO.ProductDAO;
+import exceptions.EmagException;
+
+
+@WebServlet("/Search")
+public class Search extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+  
+    public Search() {
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String brand = request.getParameter("searchBrand");
+		List<Product> result = new ArrayList<Product>();
+		IProductDAO dao = new ProductDAO();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://192.168.8.22:3306/season5_java2_teamSpasDeyan","ittstudent","ittstudent-123");
+			
+			result = dao.getSelectedProducts(brand);
+			
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EmagException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.setContentType("text/html");
+		
+		response.getWriter().println("<table style = 'border-spacing: 1px;'>");
+		response.getWriter().println("<th> Brand </th>");
+		response.getWriter().println("<th> Model </th>");
+		response.getWriter().println("<th> Properties </th>");
+		response.getWriter().println("<th> Price </th>");
+		for(Product p : result){
+			response.getWriter().println("<tr>");
+			String brandProduct = p.getBrand();
+			String model = p.getModel();
+			String properties = p.getProperties();
+			Double price = p.getPrice();
+			
+			response.getWriter().println("<td>" + brandProduct + "</td>");
+			response.getWriter().println("<td>" + model + "</td>");
+			response.getWriter().println("<td>" + properties + "</td>");
+			response.getWriter().println("<td>" + price + "</td>");
+			
+			response.getWriter().println("</tr>");
+			
+		}
+		
+		response.getWriter().println("</table>");
+	}
+//		IProductDAO product = ProductDAO.getInstance();
+//		try {
+//			product.getSelectedProducts(brand);
+//		} catch (SQLException | EmagException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		response.getWriter().println("<h1>"+brand+result.get(2)+"</h1>");
+//		
+//		List<Product> result = new ArrayList<Product>();
+//		
+//		try {
+//			result.addAll(product.getSelectedProducts(brand));
+//			response.sendRedirect("/ResultSearch");
+//		} catch (SQLException | EmagException e) {
+//			e.printStackTrace();
+//		}
+		
+	}
+

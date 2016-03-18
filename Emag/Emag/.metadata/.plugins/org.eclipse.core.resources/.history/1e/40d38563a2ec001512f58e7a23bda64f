@@ -1,0 +1,79 @@
+package servlets;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emag.Admin;
+
+/**
+ * Servlet implementation class Admin
+ */
+@WebServlet("/Admin")
+public class AdminServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AdminServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getSession(false)==null) {
+			response.sendRedirect("login.html");
+			return;
+		}
+		AdminServlet admin = (AdminServlet) request.getSession(false).getAttribute("admin");
+		response.setContentType("text/html");
+		response.getWriter().println("<head>");
+		response.getWriter().println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
+		response.getWriter().println("<title>Emag</title>");
+		response.getWriter().println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">");
+		response.getWriter().println("</head>");
+		
+		response.getWriter().println("<div id=\"searchBar\">");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<a href=\"index.html\"><img src=\"images/logo-login.png\" class=\"logo\" /></a>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<form action=\"./Search\" method=\"post\">");
+		response.getWriter().println("<input type=\"text\" value=\"search\" name = \"searchBrand\"/>");
+		response.getWriter().println("</form>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/man-icon.png\" />");
+		response.getWriter().println("<span>" + admin.getName() + "</span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/logout-icon.png\" />");
+		response.getWriter().println("<span><a href=\"./Logout\"> Logout </a></span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/Heart-icon.png\" />");
+		response.getWriter().println("<span>Favorites</span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/cart-icon.png\" />");
+		response.getWriter().println(" <span>Cart</span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("</div>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,58 @@
+package servlets;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emag.Product;
+import emagDAO.ProductDAO;
+
+/**
+ * Servlet implementation class ResultSearch
+ */
+@WebServlet("/ResultSearch")
+public class ResultSearch extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+    public ResultSearch() {
+       
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html");
+		
+		result.addAll(ProductDAO.getSelectedProducts(brand));
+		response.getWriter().println("<table style = 'border-spacing: 115px;'>");
+		response.getWriter().println("<th> Brand </th>");
+		response.getWriter().println("<th> Model </th>");
+		response.getWriter().println("<th> Properties </th>");
+		response.getWriter().println("<th> Price </th>");
+		for(Product p : result){
+			response.getWriter().println("<tr>");
+			String brandProduct = p.getBrand();
+			String model = p.getModel();
+			String properties = p.getProperties();
+			Double price = p.getPrice();
+			
+			response.getWriter().println("<td>" + brandProduct + "</td>");
+			response.getWriter().println("<td>" + model + "</td>");
+			response.getWriter().println("<td>" + properties + "</td>");
+			response.getWriter().println("<td>" + price + "</td>");
+			
+			response.getWriter().println("</tr>");
+			
+		}
+		
+		response.getWriter().println("</table>");
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}

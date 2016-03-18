@@ -23,7 +23,7 @@ public class SubCategoryDAO implements ISubCategoryDAO{
 		if(sub != null){
 			try{
 				Connection conn = DBConnection.getInstance().getConn();
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO subcatetegory VALUES(null, ?, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO SubCatetegory VALUES(null, ?, ?);", com.mysql.jdbc.PreparedStatement.RETURN_GENERATED_KEYS);
 				ps.setInt(1, sub.getCategory().getCategoryId());
 				ps.setString(2, sub.getName());
 				ps.executeUpdate();	

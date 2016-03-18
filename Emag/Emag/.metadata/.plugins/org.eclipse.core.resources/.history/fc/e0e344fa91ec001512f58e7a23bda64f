@@ -1,0 +1,107 @@
+package servlets;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emag.Product;
+import emagDAO.IProductDAO;
+import emagDAO.ProductDAO;
+import exceptions.EmagException;
+
+
+@WebServlet("/Search")
+public class Search extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+  
+    public Search() {
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String brand = request.getParameter("searchBrand");
+		List<Product> result = new ArrayList<Product>();
+		IProductDAO dao = new ProductDAO();
+		try {
+			result = dao.getSelectedProducts(brand);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EmagException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.getWriter().println("<head>");
+		response.getWriter().println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
+		response.getWriter().println("<title>Untitled Document</title>");
+		response.getWriter().println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">");
+		response.getWriter().println("</head>");
+		
+		response.getWriter().println("<div id=\"searchBar\">");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<a href=\"index.html\"><img src=\"images/logo-login.png\" class=\"logo\" /></a>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<form action=\"./Search\" method=\"post\">");
+		response.getWriter().println("<input type=\"text\" value=\"search\" name = \"searchBrand\"/>");
+		response.getWriter().println("</form>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/man-icon.png\" />");
+		response.getWriter().println("<span><a href=\"login.html\">My account</a></span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/Heart-icon.png\" />");
+		response.getWriter().println("<span>Favorites</span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<div>");
+		response.getWriter().println("<img src=\"images/cart-icon.png\" />");
+		response.getWriter().println(" <span><a href=\"cart.html\">Cart</a></span>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("</div>");
+		response.getWriter().println("<table style = 'border-spacing: 1px;'>");
+		response.getWriter().println("<th> Brand </th>");
+		response.getWriter().println("<th> Model </th>");
+		response.getWriter().println("<th> Properties </th>");
+		response.getWriter().println("<th> Price </th>");
+		for(Product p : result){
+			response.getWriter().println("<tr>");
+			String brandProduct = p.getBrand();
+			String model = p.getModel();
+			String properties = p.getProperties();
+			Double price = p.getPrice();
+			String photo = p.getPhoto();
+			response.getWriter().println("<td>" + brandProduct + "</td>");
+			response.getWriter().println("<td>" + model + "</td>");
+			response.getWriter().println("<td>" + properties + "</td>");
+			response.getWriter().println("<td>" + price + "</td>");
+			response.getWriter().println("<td><img src = 'images/"+ photo +"' width = '15%' height = '20%'/></td>");
+			
+			response.getWriter().println("</tr>");
+			
+		}
+		
+		response.getWriter().println("</table>");
+	}
+		
+}
+

@@ -1,0 +1,9 @@
+package emagDAO;
+
+public class AdminDAO {
+
+	public AdminDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

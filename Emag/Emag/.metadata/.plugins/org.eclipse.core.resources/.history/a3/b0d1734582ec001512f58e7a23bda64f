@@ -1,0 +1,67 @@
+package servlets;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emag.Product;
+import emagDAO.IProductDAO;
+import emagDAO.ProductDAO;
+import exceptions.EmagException;
+
+
+@WebServlet("/Search")
+public class Search extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+  
+    public Search() {
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String brand = request.getParameter("searchBrand");
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.8.22:3306/season5_java2_teamSpasDeyan", "ittstudent", "ittstudent-123");
+		} catch (ClassNotFoundException | SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+//		IProductDAO product = ProductDAO.getInstance();
+//		try {
+//			product.getSelectedProducts(brand);
+//		} catch (SQLException | EmagException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		response.getWriter().println("<h1>"+brand+"</h1>");
+//		
+//		List<Product> result = new ArrayList<Product>();
+//		
+//		try {
+//			result.addAll(product.getSelectedProducts(brand));
+//			response.sendRedirect("/ResultSearch");
+//		} catch (SQLException | EmagException e) {
+//			e.printStackTrace();
+//		}
+		
+	}
+
+}

@@ -2,21 +2,30 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="connection.DBConnection"/>
-<fullyQualifiedTypeName name="emagDAO.ProductDAO"/>
-<fullyQualifiedTypeName name="emag.Product"/>
 <fullyQualifiedTypeName name="emagDAO.SubCategoryDAO"/>
 <fullyQualifiedTypeName name="emagDAO.ISubCategoryDAO"/>
 <fullyQualifiedTypeName name="exceptions.EmagException"/>
 <fullyQualifiedTypeName name="emagDAO.ICategoryDAO"/>
 <fullyQualifiedTypeName name="emagDAO.CategoryDAO"/>
-<fullyQualifiedTypeName name="emag.Category"/>
-<fullyQualifiedTypeName name="emag.SubCategory"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="emag.Client"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="emagDAO.InvalidClientException"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="emagDAO.IProductDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="emagDAO.ProductDAO"/>
+<fullyQualifiedTypeName name="emagDAO.ClientDAO"/>
+<fullyQualifiedTypeName name="emagDAO.IClientDAO"/>
+<fullyQualifiedTypeName name="emag.Client"/>
+<fullyQualifiedTypeName name="emag.Admin"/>
+<fullyQualifiedTypeName name="emagDAO.AdminDAO"/>
+<fullyQualifiedTypeName name="emagDAO.IAdminDAO"/>
+<fullyQualifiedTypeName name="servlets.AdminServlet"/>
+<fullyQualifiedTypeName name="emag.Category"/>
+<fullyQualifiedTypeName name="emag.SubCategory"/>
+<fullyQualifiedTypeName name="emag.Product"/>
 </qualifiedTypeNameHistroy>

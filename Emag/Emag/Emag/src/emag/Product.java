@@ -12,19 +12,27 @@ public class Product {
 	private String properties;
 	private double price;
 	private SubCategory subCat;
+	private String photo;
 	
 	public Product(){
 		
 	}
-	public Product(int id, SubCategory subCat, String brand, String model, String properties, double price) throws EmagException {
+	public Product(int id, SubCategory subCat, String brand, String model, String properties, double price, String photo) throws EmagException {
 		this.subCat = subCat;
 		this.brand = brand;
 		this.model = model;
 		this.setProperties(properties);
 		this.price = price;
 		this.setId(id);
+		this.setPhoto(photo);
 	}
 	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}

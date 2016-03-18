@@ -8,7 +8,7 @@ import exceptions.EmagException;
 
 public interface IProductDAO {
 
-	int addProduct(Product p) throws EmagException;
+	void addProduct(Product p) throws EmagException;
 
 	void updateProduct(Product p, double price) throws EmagException;
 
